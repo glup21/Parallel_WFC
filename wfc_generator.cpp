@@ -7,13 +7,36 @@
 #include <thread>
 using std::queue, std::unordered_set;
 
-WFCGenerator::WFCGenerator(Grid& grid, Tileset& ts): grid(grid), ts(ts) 
+Mode stringToMode(const std::string& str)
+{
+    if (str == "seq")
+        return SEQUENTIAL;
+    else if (str == "chunk")
+        return CHUNK;
+    else
+        return SEQUENTIAL;
+}
+
+WFCGenerator::WFCGenerator(Grid& grid, Tileset& ts, const string& strMode): grid(grid), ts(ts), mode(stringToMode(strMode))
 {
 
 }
+
+
 void WFCGenerator::collapseGrid()
 {
+    if(mode == SEQUENTIAL)
+    {
+        sequentialGridCollapse();
+    }
+    else if(mode == CHUNK)
+    {
+        chunkGridCollapse();
+    }
+}
 
+void WFCGenerator::sequentialGridCollapse()
+{
     Cell* changed_cell = initGrid();
     int steps = 0;
     grid.printGridEnthropy();
@@ -22,9 +45,9 @@ void WFCGenerator::collapseGrid()
 
         updateGrid(changed_cell);
 
-        std::cout << "Step: " << steps << "\n";
+        //std::cout << "Step: " << steps << "\n";
         steps++;
-        grid.printGridEnthropy();
+        //grid.printGridEnthropy();
         
         changed_cell = collapseLeastEnthropy();
 
@@ -34,9 +57,32 @@ void WFCGenerator::collapseGrid()
 
     }
     std::cout << std::endl;
-
-
 }
+
+void WFCGenerator::chunkGridCollapse()
+{
+    Cell* changed_cell = initGrid();
+    int steps = 0;
+    grid.printGridEnthropy();
+    while(true)
+    {
+
+        updateGrid(changed_cell);
+
+        //std::cout << "Step: " << steps << "\n";
+        steps++;
+        //grid.printGridEnthropy();
+        
+        changed_cell = collapseLeastEnthropy();
+
+        if(changed_cell == nullptr)
+            break;
+
+
+    }
+    std::cout << std::endl;
+}
+
 
 void WFCGenerator::updateGrid(Cell* changed_cell)
 {

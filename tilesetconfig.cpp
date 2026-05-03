@@ -66,7 +66,7 @@ vector<cv::Mat> splitImageIntoGrid(cv::Mat& image, int gridSize) {
 
 TilesetConfig::TilesetConfig(string config_path) : path(config_path)
 {
-    std::ifstream file(config_path + "/config.json");
+    std::ifstream file(config_path);
 
     if(file.fail()){
         std::cerr << "Failed to open file." << '\n';
