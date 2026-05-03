@@ -38,14 +38,14 @@ bool Grid::isCollapsed()
     return true;
 }
 
-Cell* Grid::getLeastEnthropy() 
+Cell* Grid::getLeastEnthropy(GridChunk chunk) 
 {
     Cell* res = nullptr;
-    for(int i = 0; i < ySize; i++)
+    for(int i = chunk.startY; i < chunk.endY; i++)
     {
-        for(int j = 0; j < xSize; j++)
+        for(int j = chunk.startX; j < chunk.endX; j++)
         {
-            Cell* tmp = getCell(j,i);
+            Cell* tmp = getCell(j, i);
             if(tmp->getEnthropy() > 1)
             {
                 if(res == nullptr)
@@ -56,7 +56,6 @@ Cell* Grid::getLeastEnthropy()
         }
     }
     return res;
-
 }
 
 bool Grid::isValid() const

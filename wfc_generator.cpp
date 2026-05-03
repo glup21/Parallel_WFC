@@ -41,16 +41,23 @@ void WFCGenerator::sequentialGridCollapse()
     Cell* changed_cell = initGrid();
     int steps = 0;
     // grid.printGridEnthropy();
+    GridChunk gridChunk{
+        0,
+        grid.getX(),
+        0,
+        grid.getY(),
+        0
+    };
     while(true)
     {
 
-        updateGrid(changed_cell);
+        updateGrid(changed_cell, gridChunk);
 
         //std::cout << "Step: " << steps << "\n";
         steps++;
         //grid.printGridEnthropy();
         
-        changed_cell = collapseLeastEnthropy();
+        changed_cell = collapseLeastEnthropy(gridChunk);
 
         if(changed_cell == nullptr)
             break;
@@ -62,27 +69,39 @@ void WFCGenerator::sequentialGridCollapse()
 
 void WFCGenerator::chunkGridCollapse()
 {
-    Cell* changed_cell = initGrid();
-    int steps = 0;
+    initGrid();
+    vector<GridChunk> chunks = splitGridIntoChunks();
 
-    splitGridIntoChunks();
-    while(true)
+    vector<GridChunk> blackChunks, whiteChunks;
+    for(auto& chunk : chunks)
     {
-
-        updateGrid(changed_cell);
-
-        //std::cout << "Step: " << steps << "\n";
-        steps++;
-        //grid.printGridEnthropy();
-        
-        changed_cell = collapseLeastEnthropy();
-
-        if(changed_cell == nullptr)
-            break;
-
-
+        if(chunk.phase == 0) blackChunks.push_back(chunk);
+        else whiteChunks.push_back(chunk);
     }
-    std::cout << std::endl;
+
+    // Phase 1 - black chunks, fully independent
+    #pragma omp parallel for schedule(dynamic)
+    for(int i = 0; i < blackChunks.size(); i++)
+    {
+        Cell* changed_cell = collapseLeastEnthropy(blackChunks[i]);
+        while(changed_cell != nullptr)
+        {
+            updateGrid(changed_cell, blackChunks[i]);
+            changed_cell = collapseLeastEnthropy(blackChunks[i]);
+        }
+    }
+
+    // Phase 2 - white chunks, borders are fully determined by phase 1
+    #pragma omp parallel for schedule(dynamic)
+    for(int i = 0; i < whiteChunks.size(); i++)
+    {
+        Cell* changed_cell = collapseLeastEnthropy(whiteChunks[i]);
+        while(changed_cell != nullptr)
+        {
+            updateGrid(changed_cell, whiteChunks[i]);
+            changed_cell = collapseLeastEnthropy(whiteChunks[i]);
+        }
+    }
 }
 
 vector<GridChunk> WFCGenerator::splitGridIntoChunks()
@@ -126,7 +145,7 @@ vector<GridChunk> WFCGenerator::splitGridIntoChunks()
     return res;
 }
 
-void WFCGenerator::updateGrid(Cell* changed_cell)
+void WFCGenerator::updateGrid(Cell* changed_cell, GridChunk chunk)
 {
     std::queue<Cell*> cells_to_update;
     cells_to_update.push(changed_cell);
@@ -169,6 +188,10 @@ void WFCGenerator::updateGrid(Cell* changed_cell)
             if (neighbor == nullptr || neighbor->getEnthropy() <= 1)
                 continue;
 
+            if (neighbor->getX() < chunk.startX || neighbor->getX() >= chunk.endX ||
+                neighbor->getY() < chunk.startY || neighbor->getY() >= chunk.endY)
+                continue;
+
             bool updated = neighbor->update(current_cell->getTiles(), i);
 
             if (updated) {
@@ -200,10 +223,9 @@ Cell* WFCGenerator::initGrid()
     return collapsed_cell;
 
 }
-
-Cell* WFCGenerator::collapseLeastEnthropy()
+Cell* WFCGenerator::collapseLeastEnthropy(GridChunk chunk)
 {
-    Cell* res = grid.getLeastEnthropy();
+    Cell* res = grid.getLeastEnthropy(chunk);
 
     if(res == nullptr)
         return res;

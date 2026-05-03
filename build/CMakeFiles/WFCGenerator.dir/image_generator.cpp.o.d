@@ -445,4 +445,5 @@ CMakeFiles/WFCGenerator.dir/image_generator.cpp.o: \
  /usr/include/nlohmann/detail/conversions/to_chars.hpp \
  /usr/include/nlohmann/ordered_map.hpp /usr/include/c++/15.2.1/any \
  /usr/include/nlohmann/detail/macro_unscope.hpp \
- /usr/include/nlohmann/thirdparty/hedley/hedley_undef.hpp
+ /usr/include/nlohmann/thirdparty/hedley/hedley_undef.hpp \
+ /home/glup21/Documents/Study/ZPG/WFC/wfc_generator.h

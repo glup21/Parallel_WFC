@@ -6,6 +6,8 @@
 #include <random>
 #include "sides.h"
 
+class Grid;
+
 enum Mode
 {
     SEQUENTIAL,
@@ -32,8 +34,8 @@ class WFCGenerator
     Mode mode;
 
     Cell* initGrid();
-    void updateGrid(Cell* changed_cell);
-    Cell* collapseLeastEnthropy();
+    void updateGrid(Cell* changed_cell, GridChunk chunk);
+    Cell* collapseLeastEnthropy(GridChunk chunk);
 
     void sequentialGridCollapse();
     void chunkGridCollapse();

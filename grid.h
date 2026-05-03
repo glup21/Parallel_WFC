@@ -4,8 +4,9 @@
 #include <vector>
 #include "cell.h"
 #include "tileset.h"
-
+#include "wfc_generator.h"
 using std::vector;
+class GridChunk;
 
 class Grid
 {
@@ -22,7 +23,7 @@ public:
     int getY()const{return ySize;}
     bool isCollapsed();
     bool isValid()const;
-    Cell* getLeastEnthropy();
+    Cell* getLeastEnthropy(GridChunk chunk);
     vector<vector<Cell>>& getCells(){return cells;}
 
     void printGridEnthropy();

@@ -546,6 +546,7 @@ CMakeFiles/WFCGenerator.dir/grid.cpp.o
  /home/glup21/Documents/Study/ZPG/WFC/tileinfo.h
  /home/glup21/Documents/Study/ZPG/WFC/tileset.h
  /home/glup21/Documents/Study/ZPG/WFC/tilesetconfig.h
+ /home/glup21/Documents/Study/ZPG/WFC/wfc_generator.h
  /usr/include/alloca.h
  /usr/include/asm-generic/bitsperlong.h
  /usr/include/asm-generic/errno-base.h
@@ -1074,6 +1075,7 @@ CMakeFiles/WFCGenerator.dir/image_generator.cpp.o
  /home/glup21/Documents/Study/ZPG/WFC/tileinfo.h
  /home/glup21/Documents/Study/ZPG/WFC/tileset.h
  /home/glup21/Documents/Study/ZPG/WFC/tilesetconfig.h
+ /home/glup21/Documents/Study/ZPG/WFC/wfc_generator.h
  /usr/include/alloca.h
  /usr/include/asm-generic/bitsperlong.h
  /usr/include/asm-generic/errno-base.h
