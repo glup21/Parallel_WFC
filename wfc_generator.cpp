@@ -5,8 +5,9 @@
 #include <future>
 #include <mutex>
 #include <thread>
+#include <omp.h>
 using std::queue, std::unordered_set;
-
+using namespace std;
 Mode stringToMode(const std::string& str)
 {
     if (str == "seq")
@@ -39,7 +40,7 @@ void WFCGenerator::sequentialGridCollapse()
 {
     Cell* changed_cell = initGrid();
     int steps = 0;
-    grid.printGridEnthropy();
+    // grid.printGridEnthropy();
     while(true)
     {
 
@@ -63,7 +64,8 @@ void WFCGenerator::chunkGridCollapse()
 {
     Cell* changed_cell = initGrid();
     int steps = 0;
-    grid.printGridEnthropy();
+
+    splitGridIntoChunks();
     while(true)
     {
 
@@ -83,6 +85,46 @@ void WFCGenerator::chunkGridCollapse()
     std::cout << std::endl;
 }
 
+vector<GridChunk> WFCGenerator::splitGridIntoChunks()
+{
+    vector<GridChunk> res;
+    int cores = omp_get_num_procs();
+    int oversubscription = 1;
+
+    int totalChunks = cores * oversubscription * 2;
+    int chunksPerAxis = (int)ceil(sqrt((float)totalChunks));
+
+    int paddedX = ((grid.getX() + chunksPerAxis - 1) / chunksPerAxis) * chunksPerAxis;
+    int paddedY = ((grid.getY() + chunksPerAxis - 1) / chunksPerAxis) * chunksPerAxis;
+
+    int chunkSizeX = paddedX / chunksPerAxis;
+    int chunkSizeY = paddedY / chunksPerAxis;
+
+    cout << "Chunks per axis: " << chunksPerAxis << endl;
+    cout << "Chunk size: " << chunkSizeX << "x" << chunkSizeY << endl;
+
+    // Warn if chunks are below lower bound
+    if (chunkSizeX < 4 || chunkSizeY < 4)
+        cout << "WARNING: chunk size below lower bound, consider rule propagation instead" << endl;
+
+    for (int cy = 0; cy < chunksPerAxis; cy++)
+    {
+        for (int cx = 0; cx < chunksPerAxis; cx++)
+        {
+            GridChunk chunk;
+            chunk.startX = cx * chunkSizeX;
+            chunk.startY = cy * chunkSizeY;
+
+            chunk.endX = min(chunk.startX + chunkSizeX, grid.getX());
+            chunk.endY = min(chunk.startY + chunkSizeY, grid.getY());
+
+            chunk.phase = (cx + cy) % 2;
+            res.push_back(chunk);
+        }
+    }
+
+    return res;
+}
 
 void WFCGenerator::updateGrid(Cell* changed_cell)
 {

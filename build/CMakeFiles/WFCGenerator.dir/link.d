@@ -71,6 +71,8 @@ WFCGenerator: \
   /usr/lib/libopencv_photo.so.4.13.0 \
   /usr/lib/libopencv_imgproc.so.4.13.0 \
   /usr/lib/libopencv_core.so.4.13.0 \
+  /usr/lib/libgomp.so \
+  /usr/lib/libpthread.a \
   /usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/../../../../lib/libstdc++.so \
   /usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/../../../../lib/libm.so \
   /usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/../../../../lib/libm.so \
@@ -227,8 +229,6 @@ WFCGenerator: \
   /usr/lib/libvtkFiltersReduction.so.1 \
   /usr/lib/libvtkkissfft.so.1 \
   /usr/lib/libvtkloguru.so.1 \
-  /usr/lib32/libgomp.so.1 \
-  /usr/lib/libgomp.so.1 \
   /usr/lib/libQt6OpenGL.so.6 \
   /usr/lib32/libxml2.so.16 \
   /usr/lib/libxml2.so.16 \
@@ -620,6 +620,10 @@ CMakeFiles/WFCGenerator.dir/tileinfo.cpp.o:
 
 /usr/lib/libopencv_core.so.4.13.0:
 
+/usr/lib/libgomp.so:
+
+/usr/lib/libpthread.a:
+
 /usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/../../../../lib/libstdc++.so:
 
 /usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/../../../../lib/libm.so:
@@ -931,10 +935,6 @@ CMakeFiles/WFCGenerator.dir/tileinfo.cpp.o:
 /usr/lib/libvtkkissfft.so.1:
 
 /usr/lib/libvtkloguru.so.1:
-
-/usr/lib32/libgomp.so.1:
-
-/usr/lib/libgomp.so.1:
 
 /usr/lib/libQt6OpenGL.so.6:
 

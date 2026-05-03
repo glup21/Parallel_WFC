@@ -297,6 +297,8 @@ WFCGenerator: /usr/lib/libopencv_flann.so.4.13.0
 WFCGenerator: /usr/lib/libopencv_photo.so.4.13.0
 WFCGenerator: /usr/lib/libopencv_imgproc.so.4.13.0
 WFCGenerator: /usr/lib/libopencv_core.so.4.13.0
+WFCGenerator: /usr/lib/libgomp.so
+WFCGenerator: /usr/lib/libpthread.a
 WFCGenerator: CMakeFiles/WFCGenerator.dir/link.txt
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=/home/glup21/Documents/Study/ZPG/WFC/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_11) "Linking CXX executable WFCGenerator"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/WFCGenerator.dir/link.txt --verbose=$(VERBOSE)

@@ -4523,6 +4523,7 @@ CMakeFiles/WFCGenerator.dir/wfc_generator.cpp.o: /home/glup21/Documents/Study/ZP
   /usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/include/limits.h \
   /usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/include/mm_malloc.h \
   /usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/include/mmintrin.h \
+  /usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/include/omp.h \
   /usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/include/stdarg.h \
   /usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/include/stddef.h \
   /usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/include/stdint.h \
@@ -4680,7 +4681,7 @@ WFCGenerator: /usr/lib/libsz.so.2 \
   /usr/lib/libgmp.so.10 \
   /usr/lib/libgnutls.so.30 \
   /usr/lib/libgobject-2.0.so.0 \
-  /usr/lib/libgomp.so.1 \
+  /usr/lib/libgomp.so \
   /usr/lib/libgraphite2.so.3 \
   /usr/lib/libgsm.so.1 \
   /usr/lib/libgstallocators-1.0.so.0 \
@@ -4799,6 +4800,7 @@ WFCGenerator: /usr/lib/libsz.so.2 \
   /usr/lib/libplacebo.so.360 \
   /usr/lib/libpng16.so.16 \
   /usr/lib/libprotobuf.so.34.1.0 \
+  /usr/lib/libpthread.a \
   /usr/lib/libpugixml.so.1 \
   /usr/lib/libpulse.so.0 \
   /usr/lib/librav1e.so.0.8 \
@@ -4939,7 +4941,6 @@ WFCGenerator: /usr/lib/libsz.so.2 \
   /usr/lib32/libgmodule-2.0.so.0 \
   /usr/lib32/libgmp.so.10 \
   /usr/lib32/libgnutls.so.30 \
-  /usr/lib32/libgomp.so.1 \
   /usr/lib32/libhogweed.so.6 \
   /usr/lib32/libicudata.so.78 \
   /usr/lib32/libidn2.so.0 \
@@ -5550,6 +5551,8 @@ CMakeFiles/WFCGenerator.dir/wfc_generator.cpp.o:
 
 /usr/include/c++/15.2.1/bits/valarray_array.h:
 
+/usr/lib/libgomp.so:
+
 /usr/include/c++/15.2.1/bit:
 
 /usr/lib32/libexpat.so.1:
@@ -5705,6 +5708,8 @@ CMakeFiles/WFCGenerator.dir/tile.cpp.o:
 /usr/include/c++/15.2.1/bits/ostream_insert.h:
 
 /usr/lib/libhwy.so.1:
+
+/usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/include/omp.h:
 
 /usr/include/c++/15.2.1/list:
 
@@ -5948,8 +5953,6 @@ CMakeFiles/WFCGenerator.dir/grid.cpp.o:
 
 /usr/include/bits/floatn.h:
 
-/usr/lib/libgomp.so.1:
-
 /usr/include/c++/15.2.1/atomic:
 
 /usr/include/c++/15.2.1/bits/functexcept.h:
@@ -6187,8 +6190,6 @@ CMakeFiles/WFCGenerator.dir/grid.cpp.o:
 /usr/include/bits/uintn-identity.h:
 
 /usr/include/opencv4/opencv2/flann/index_testing.h:
-
-/usr/lib32/libgomp.so.1:
 
 /usr/lib/libabsl_leak_check.so.2601.0.0:
 
@@ -6735,6 +6736,8 @@ CMakeFiles/WFCGenerator.dir/tilesetconfig.cpp.o:
 /usr/include/c++/15.2.1/pstl/pstl_config.h:
 
 /usr/include/opencv4/opencv2/core/cvstd.inl.hpp:
+
+/usr/lib/libpthread.a:
 
 /usr/include/opencv4/opencv2/dnn.hpp:
 

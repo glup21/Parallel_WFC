@@ -12,6 +12,17 @@ enum Mode
     CHUNK
 };
 
+struct GridChunk
+{
+    int startX;
+    int endX;
+
+    int startY;
+    int endY;
+
+    int phase;
+};
+
 Mode stringToMode(const std::string& str);
 
 class WFCGenerator
@@ -26,6 +37,11 @@ class WFCGenerator
 
     void sequentialGridCollapse();
     void chunkGridCollapse();
+
+    vector<GridChunk> splitGridIntoChunks();
+
+    int chunkLowerBound = 4;
+    int chunkHigherBound = 20;
 
 public:
     WFCGenerator(Grid& grid, Tileset& ts, const string& strMode);

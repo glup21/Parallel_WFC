@@ -6,5 +6,5 @@ CXX_DEFINES =
 
 CXX_INCLUDES = -I/home/glup21/Documents/Study/ZPG/WFC -isystem /usr/include/opencv4
 
-CXX_FLAGS = -g -fsanitize=address -std=gnu++17
+CXX_FLAGS = -g -std=gnu++17 -fsanitize=address -fopenmp
 
