@@ -38,6 +38,40 @@ bool Grid::isCollapsed()
     return true;
 }
 
+void Grid::resetChunk(
+    GridChunk chunk,
+    vector<vector<vector<shared_ptr<Tile>>>> resetConfiguration)
+{
+    for (int y = chunk.startY; y < chunk.endY; y++)
+    {
+        for (int x = chunk.startX; x < chunk.endX; x++)
+        {
+            cells[y][x].resetTiles(
+                resetConfiguration[y - chunk.startY][x - chunk.startX]
+            );
+        }
+    }
+}
+
+vector<vector<vector<shared_ptr<Tile>>>> Grid::getChunkTiles(GridChunk chunk)
+{
+    vector<vector<vector<shared_ptr<Tile>>>> res;
+
+    for (int y = chunk.startY; y < chunk.endY; y++)
+    {
+        vector<vector<shared_ptr<Tile>>> row;
+
+        for (int x = chunk.startX; x < chunk.endX; x++)
+        {
+            row.push_back(cells[y][x].getTiles());
+        }
+
+        res.push_back(std::move(row));
+    }
+
+    return res;
+}
+
 Cell* Grid::getLeastEnthropy(GridChunk chunk) 
 {
     Cell* res = nullptr;
@@ -68,6 +102,17 @@ bool Grid::isValid() const
     return true;
 }
 
+bool Grid::isValid(GridChunk chunk) const
+{
+    for(int y = chunk.startY; y < chunk.endY; y++)
+    {
+        for(int x = chunk.startX; x < chunk.endX; x++)
+        {
+            if(cells[y][x].getEnthropy() <= 0) return false;
+        }
+    }
+    return true;
+}
 
 void Grid::printGridEnthropy() 
 {

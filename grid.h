@@ -23,8 +23,12 @@ public:
     int getY()const{return ySize;}
     bool isCollapsed();
     bool isValid()const;
+    bool isValid(GridChunk chunk) const;
     Cell* getLeastEnthropy(GridChunk chunk);
     vector<vector<Cell>>& getCells(){return cells;}
+    void resetChunk(GridChunk chunk, vector< vector<vector<shared_ptr<Tile> >>> resetConfiguration);
+    vector< vector<vector<shared_ptr<Tile> >>> getChunkTiles(GridChunk chunk);
+
 
     void printGridEnthropy();
     void printGridTiles();

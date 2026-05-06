@@ -11,7 +11,8 @@ class Grid;
 enum Mode
 {
     SEQUENTIAL,
-    CHUNK
+    CHUNK,
+    PARALLEL
 };
 
 struct GridChunk

@@ -530,6 +530,7 @@ CMakeFiles/WFCGenerator.dir/cell.cpp.o
  /usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/include/limits.h
  /usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/include/mm_malloc.h
  /usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/include/mmintrin.h
+ /usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/include/omp.h
  /usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/include/stdarg.h
  /usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/include/stddef.h
  /usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/include/stdint.h
@@ -1058,6 +1059,7 @@ CMakeFiles/WFCGenerator.dir/grid.cpp.o
  /usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/include/limits.h
  /usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/include/mm_malloc.h
  /usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/include/mmintrin.h
+ /usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/include/omp.h
  /usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/include/stdarg.h
  /usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/include/stddef.h
  /usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/include/stdint.h
@@ -1587,6 +1589,7 @@ CMakeFiles/WFCGenerator.dir/image_generator.cpp.o
  /usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/include/limits.h
  /usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/include/mm_malloc.h
  /usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/include/mmintrin.h
+ /usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/include/omp.h
  /usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/include/stdarg.h
  /usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/include/stddef.h
  /usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/include/stdint.h
@@ -2119,6 +2122,7 @@ CMakeFiles/WFCGenerator.dir/main.cpp.o
  /usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/include/limits.h
  /usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/include/mm_malloc.h
  /usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/include/mmintrin.h
+ /usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/include/omp.h
  /usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/include/stdarg.h
  /usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/include/stddef.h
  /usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/include/stdint.h
@@ -4543,6 +4547,7 @@ CMakeFiles/WFCGenerator.dir/wfc_generator.cpp.o
  /usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/include/xmmintrin.h
 
 WFCGenerator
+ /opt/cuda/lib64/libOpenCL.so.1
  /usr/lib/libsz.so.2
  /usr/lib/Scrt1.o
  /usr/lib/crti.o
@@ -4566,7 +4571,6 @@ WFCGenerator
  /usr/lib/libIex-3_4.so.33
  /usr/lib/libIlmThread-3_4.so.33
  /usr/lib/libImath-3_2.so.30
- /usr/lib/libOpenCL.so.1
  /usr/lib/libOpenEXR-3_4.so.33
  /usr/lib/libOpenEXRCore-3_4.so.33
  /usr/lib/libOpenGL.so.0
@@ -4669,6 +4673,7 @@ WFCGenerator
  /usr/lib/libdav1d.so.7
  /usr/lib/libdbus-1.so.3
  /usr/lib/libdeflate.so.0
+ /usr/lib/libdl.so.2
  /usr/lib/libdouble-conversion.so.3
  /usr/lib/libdovi.so.3
  /usr/lib/libdrm.so.2
@@ -4814,6 +4819,7 @@ WFCGenerator
  /usr/lib/libpng16.so.16
  /usr/lib/libprotobuf.so.34.1.0
  /usr/lib/libpthread.a
+ /usr/lib/libpthread.so.0
  /usr/lib/libpugixml.so.1
  /usr/lib/libpulse.so.0
  /usr/lib/librav1e.so.0.8
@@ -4944,6 +4950,7 @@ WFCGenerator
  /usr/lib32/libbrotlienc.so.1
  /usr/lib32/libbz2.so.1.0
  /usr/lib32/libcrypto.so.3
+ /usr/lib32/libdl.so.2
  /usr/lib32/libdrm.so.2
  /usr/lib32/libdw.so.1
  /usr/lib32/libelf.so.1
@@ -4963,6 +4970,7 @@ WFCGenerator
  /usr/lib32/libp11-kit.so.0
  /usr/lib32/libpcre2-8.so.0
  /usr/lib32/libpipewire-0.3.so.0
+ /usr/lib32/libpthread.so.0
  /usr/lib32/libtasn1.so.6
  /usr/lib32/libunistring.so.5
  /usr/lib32/libva-drm.so.2

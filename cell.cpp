@@ -9,7 +9,12 @@ Cell::Cell(vector<shared_ptr<Tile>> tiles, int x, int y, Tileset& ts):
  tiles(tiles), enthropy(tiles.size()), 
  x(x), y(y), ts(ts)
 {
+    omp_init_lock(&lock);
+}
 
+Cell::~Cell()
+{
+    omp_destroy_lock(&lock);
 }
 
 void Cell::collapse()
@@ -30,6 +35,12 @@ void Cell::collapse()
     tiles = vector<shared_ptr<Tile>> {new_tile};
 }
 
+void Cell::resetTiles(vector<shared_ptr<Tile>> newTiles)
+{
+    this->tiles = newTiles;
+    this->enthropy = newTiles.size();
+}
+
 vector<shared_ptr<Tile>> Cell::getTiles() const
 {
     return tiles;
@@ -37,6 +48,10 @@ vector<shared_ptr<Tile>> Cell::getTiles() const
 
 bool Cell::update(vector<shared_ptr<Tile>> neigh_tiles, int direction)
 {
+    omp_set_lock(&lock);
+    isLocked = true; 
+    
+
     bool updated = false;
     int checking_side = rotateSide(direction); // Side to which we compare neighbouring tiles
     unordered_set<string> valid_ids; // Store valid tile IDs for quick lookup
@@ -60,11 +75,14 @@ bool Cell::update(vector<shared_ptr<Tile>> neigh_tiles, int direction)
 
     if (tiles.size() == new_tiles.size())
     {
+        omp_unset_lock(&lock);
         return false; // No change in possible tiles
+        
     }
 
     tiles.assign(new_tiles.begin(), new_tiles.end()); // Update possible tiles
     enthropy = tiles.size(); // Update entropy
+    omp_unset_lock(&lock);
     return true;
 }
 

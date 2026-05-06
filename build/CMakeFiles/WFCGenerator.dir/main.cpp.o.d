@@ -448,6 +448,7 @@ CMakeFiles/WFCGenerator.dir/main.cpp.o: \
  /usr/include/c++/15.2.1/x86_64-pc-linux-gnu/bits/opt_random.h \
  /usr/include/c++/15.2.1/bits/random.tcc \
  /home/glup21/Documents/Study/ZPG/WFC/sides.h \
+ /usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/include/omp.h \
  /home/glup21/Documents/Study/ZPG/WFC/image_generator.h \
  /usr/include/c++/15.2.1/thread /usr/include/c++/15.2.1/bits/std_thread.h \
  /usr/include/c++/15.2.1/bits/this_thread_sleep.h

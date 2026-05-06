@@ -529,6 +529,7 @@ CMakeFiles/WFCGenerator.dir/cell.cpp.o: /home/glup21/Documents/Study/ZPG/WFC/cel
   /usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/include/limits.h \
   /usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/include/mm_malloc.h \
   /usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/include/mmintrin.h \
+  /usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/include/omp.h \
   /usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/include/stdarg.h \
   /usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/include/stddef.h \
   /usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/include/stdint.h \
@@ -1056,6 +1057,7 @@ CMakeFiles/WFCGenerator.dir/grid.cpp.o: /home/glup21/Documents/Study/ZPG/WFC/gri
   /usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/include/limits.h \
   /usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/include/mm_malloc.h \
   /usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/include/mmintrin.h \
+  /usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/include/omp.h \
   /usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/include/stdarg.h \
   /usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/include/stddef.h \
   /usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/include/stdint.h \
@@ -1584,6 +1586,7 @@ CMakeFiles/WFCGenerator.dir/image_generator.cpp.o: /home/glup21/Documents/Study/
   /usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/include/limits.h \
   /usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/include/mm_malloc.h \
   /usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/include/mmintrin.h \
+  /usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/include/omp.h \
   /usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/include/stdarg.h \
   /usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/include/stddef.h \
   /usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/include/stdint.h \
@@ -2115,6 +2118,7 @@ CMakeFiles/WFCGenerator.dir/main.cpp.o: /home/glup21/Documents/Study/ZPG/WFC/mai
   /usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/include/limits.h \
   /usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/include/mm_malloc.h \
   /usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/include/mmintrin.h \
+  /usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/include/omp.h \
   /usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/include/stdarg.h \
   /usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/include/stddef.h \
   /usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/include/stdint.h \
@@ -4532,7 +4536,8 @@ CMakeFiles/WFCGenerator.dir/wfc_generator.cpp.o: /home/glup21/Documents/Study/ZP
   /usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/include/syslimits.h \
   /usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/include/xmmintrin.h
 
-WFCGenerator: /usr/lib/libsz.so.2 \
+WFCGenerator: /opt/cuda/lib64/libOpenCL.so.1 \
+  /usr/lib/libsz.so.2 \
   /usr/lib/Scrt1.o \
   /usr/lib/crti.o \
   /usr/lib/crtn.o \
@@ -4555,7 +4560,6 @@ WFCGenerator: /usr/lib/libsz.so.2 \
   /usr/lib/libIex-3_4.so.33 \
   /usr/lib/libIlmThread-3_4.so.33 \
   /usr/lib/libImath-3_2.so.30 \
-  /usr/lib/libOpenCL.so.1 \
   /usr/lib/libOpenEXR-3_4.so.33 \
   /usr/lib/libOpenEXRCore-3_4.so.33 \
   /usr/lib/libOpenGL.so.0 \
@@ -4658,6 +4662,7 @@ WFCGenerator: /usr/lib/libsz.so.2 \
   /usr/lib/libdav1d.so.7 \
   /usr/lib/libdbus-1.so.3 \
   /usr/lib/libdeflate.so.0 \
+  /usr/lib/libdl.so.2 \
   /usr/lib/libdouble-conversion.so.3 \
   /usr/lib/libdovi.so.3 \
   /usr/lib/libdrm.so.2 \
@@ -4803,6 +4808,7 @@ WFCGenerator: /usr/lib/libsz.so.2 \
   /usr/lib/libpng16.so.16 \
   /usr/lib/libprotobuf.so.34.1.0 \
   /usr/lib/libpthread.a \
+  /usr/lib/libpthread.so.0 \
   /usr/lib/libpugixml.so.1 \
   /usr/lib/libpulse.so.0 \
   /usr/lib/librav1e.so.0.8 \
@@ -4933,6 +4939,7 @@ WFCGenerator: /usr/lib/libsz.so.2 \
   /usr/lib32/libbrotlienc.so.1 \
   /usr/lib32/libbz2.so.1.0 \
   /usr/lib32/libcrypto.so.3 \
+  /usr/lib32/libdl.so.2 \
   /usr/lib32/libdrm.so.2 \
   /usr/lib32/libdw.so.1 \
   /usr/lib32/libelf.so.1 \
@@ -4952,6 +4959,7 @@ WFCGenerator: /usr/lib/libsz.so.2 \
   /usr/lib32/libp11-kit.so.0 \
   /usr/lib32/libpcre2-8.so.0 \
   /usr/lib32/libpipewire-0.3.so.0 \
+  /usr/lib32/libpthread.so.0 \
   /usr/lib32/libtasn1.so.6 \
   /usr/lib32/libunistring.so.5 \
   /usr/lib32/libva-drm.so.2 \
@@ -5128,6 +5136,8 @@ CMakeFiles/WFCGenerator.dir/cell.cpp.o:
 /usr/lib/librom1394.so.0:
 
 /usr/lib/libpulse.so.0:
+
+/usr/lib/libpthread.so.0:
 
 /usr/lib/libvtkmetaio.so.1:
 
@@ -5453,8 +5463,6 @@ CMakeFiles/WFCGenerator.dir/main.cpp.o:
 
 /usr/lib/libOpenEXR-3_4.so.33:
 
-/usr/lib/libOpenCL.so.1:
-
 /usr/lib32/libXau.so.6:
 
 /usr/lib/liblcms2.so.2:
@@ -5500,6 +5508,10 @@ CMakeFiles/WFCGenerator.dir/wfc_generator.cpp.o:
 /home/glup21/Documents/Study/ZPG/WFC/tilesetconfig.cpp:
 
 /home/glup21/Documents/Study/ZPG/WFC/tileinfo.cpp:
+
+/usr/lib/libopencv_imgproc.so.4.13.0:
+
+/home/glup21/Documents/Study/ZPG/WFC/tile.cpp:
 
 /usr/lib/libz.so.1:
 
@@ -5709,11 +5721,7 @@ CMakeFiles/WFCGenerator.dir/tile.cpp.o:
 
 /usr/include/c++/15.2.1/bits/ostream_insert.h:
 
-/usr/lib/libhwy.so.1:
-
-/usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/include/omp.h:
-
-/usr/include/c++/15.2.1/list:
+/opt/cuda/lib64/libOpenCL.so.1:
 
 /usr/include/c++/15.2.1/bits/streambuf.tcc:
 
@@ -5750,10 +5758,6 @@ CMakeFiles/WFCGenerator.dir/grid.cpp.o:
 /usr/include/c++/15.2.1/bits/move.h:
 
 /usr/include/c++/15.2.1/bits/memory_resource.h:
-
-/usr/lib/libopencv_imgproc.so.4.13.0:
-
-/home/glup21/Documents/Study/ZPG/WFC/tile.cpp:
 
 /usr/lib/libleancrypto.so.1:
 
@@ -5792,6 +5796,8 @@ CMakeFiles/WFCGenerator.dir/grid.cpp.o:
 /usr/include/bits/types/sigset_t.h:
 
 /usr/include/c++/15.2.1/bits/stl_iterator_base_funcs.h:
+
+/usr/lib32/libpthread.so.0:
 
 /usr/include/opencv4/opencv2/flann/composite_index.h:
 
@@ -6108,6 +6114,8 @@ CMakeFiles/WFCGenerator.dir/grid.cpp.o:
 /usr/include/c++/15.2.1/iostream:
 
 /usr/include/features-time64.h:
+
+/usr/lib32/libdl.so.2:
 
 /usr/lib/libvtkFiltersHyperTree.so.1:
 
@@ -6795,6 +6803,8 @@ CMakeFiles/WFCGenerator.dir/tilesetconfig.cpp.o:
 
 /usr/include/string.h:
 
+/usr/lib/libdl.so.2:
+
 /usr/include/opencv4/opencv2/dnn/dnn.hpp:
 
 /usr/include/opencv4/opencv2/dnn/dnn.inl.hpp:
@@ -6950,6 +6960,12 @@ CMakeFiles/WFCGenerator.dir/tilesetconfig.cpp.o:
 /usr/include/stdlib.h:
 
 /usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/include/float.h:
+
+/usr/lib/libhwy.so.1:
+
+/usr/include/c++/15.2.1/list:
+
+/usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/include/omp.h:
 
 /usr/include/opencv4/opencv2/flann/allocator.h:
 

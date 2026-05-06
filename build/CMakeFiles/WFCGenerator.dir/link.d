@@ -278,7 +278,7 @@ WFCGenerator: \
   /usr/lib/libvdpau.so.1 \
   /usr/lib32/libdrm.so.2 \
   /usr/lib/libdrm.so.2 \
-  /usr/lib/libOpenCL.so.1 \
+  /opt/cuda/lib64/libOpenCL.so.1 \
   /usr/lib/libavfilter.so.11 \
   /usr/lib/libraw1394.so.11 \
   /usr/lib/libavc1394.so.0 \
@@ -405,6 +405,10 @@ WFCGenerator: \
   /usr/lib/libX11-xcb.so.1 \
   /usr/lib32/libxcb-dri3.so.0 \
   /usr/lib/libxcb-dri3.so.0 \
+  /usr/lib32/libdl.so.2 \
+  /usr/lib/libdl.so.2 \
+  /usr/lib32/libpthread.so.0 \
+  /usr/lib/libpthread.so.0 \
   /usr/lib/libbs2b.so.0 \
   /usr/lib/librubberband.so.3 \
   /usr/lib/libfribidi.so.0 \
@@ -1034,7 +1038,7 @@ CMakeFiles/WFCGenerator.dir/tileinfo.cpp.o:
 
 /usr/lib/libdrm.so.2:
 
-/usr/lib/libOpenCL.so.1:
+/opt/cuda/lib64/libOpenCL.so.1:
 
 /usr/lib/libavfilter.so.11:
 
@@ -1287,6 +1291,14 @@ CMakeFiles/WFCGenerator.dir/tileinfo.cpp.o:
 /usr/lib32/libxcb-dri3.so.0:
 
 /usr/lib/libxcb-dri3.so.0:
+
+/usr/lib32/libdl.so.2:
+
+/usr/lib/libdl.so.2:
+
+/usr/lib32/libpthread.so.0:
+
+/usr/lib/libpthread.so.0:
 
 /usr/lib/libbs2b.so.0:
 

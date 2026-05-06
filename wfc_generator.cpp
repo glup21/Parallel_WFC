@@ -93,14 +93,28 @@ void WFCGenerator::chunkGridCollapse()
 
     // Phase 2 - white chunks, borders are fully determined by phase 1
     #pragma omp parallel for schedule(dynamic)
-    for(int i = 0; i < whiteChunks.size(); i++)
+    for (int i = 0; i < whiteChunks.size(); i++)
     {
-        Cell* changed_cell = collapseLeastEnthropy(whiteChunks[i]);
-        while(changed_cell != nullptr)
-        {
-            updateGrid(changed_cell, whiteChunks[i]);
-            changed_cell = collapseLeastEnthropy(whiteChunks[i]);
-        }
+        // while (true)
+        // {
+            // auto chunkBackup = grid.getChunkTiles(whiteChunks[i]);
+
+            Cell* changed_cell = collapseLeastEnthropy(whiteChunks[i]);
+
+            while (changed_cell != nullptr)
+            {
+                updateGrid(changed_cell, whiteChunks[i]);
+                changed_cell = collapseLeastEnthropy(whiteChunks[i]);
+            }
+
+            // if (grid.isValid(whiteChunks[i]))
+            // {
+            //     break; // success → move to next chunk
+            // }
+
+            // // failure → restore and retry same chunk
+            // grid.resetChunk(whiteChunks[i], chunkBackup);
+        // }
     }
 }
 
@@ -188,9 +202,9 @@ void WFCGenerator::updateGrid(Cell* changed_cell, GridChunk chunk)
             if (neighbor == nullptr || neighbor->getEnthropy() <= 1)
                 continue;
 
-            if (neighbor->getX() < chunk.startX || neighbor->getX() >= chunk.endX ||
-                neighbor->getY() < chunk.startY || neighbor->getY() >= chunk.endY)
-                continue;
+            // if (neighbor->getX() < chunk.startX || neighbor->getX() >= chunk.endX ||
+            //     neighbor->getY() < chunk.startY || neighbor->getY() >= chunk.endY)
+            //     continue;
 
             bool updated = neighbor->update(current_cell->getTiles(), i);
 
