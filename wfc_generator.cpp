@@ -109,7 +109,7 @@ void WFCGenerator::chunkGridCollapse()
 
             // if (grid.isValid(whiteChunks[i]))
             // {
-            //     break; // success → move to next chunk
+            //     break; // success
             // }
 
             // // failure → restore and retry same chunk

@@ -35,12 +35,16 @@ Arch:
 
 Program is launched from bash.\
 Syntax of launching:
-* > ./WFCGenerator "Tileset name" "grid width" "grid height"
-* > Example: ./WFCGenerator circuit 20 20
+* > ./WFCGenerator "Tileset name" "grid width" "grid height" "mode"
+* > Example: ./WFCGenerator circuit 20 20 chunk
 
 Tileset name is defined by folder name in folder Tiles!\
 F.e if you want to use Tileset "circuit" you should create ./Tiles/circuit.\
 This folder must contain config.json with Tileset settings!
+
+**Parallelisation** can be turned on by changing the **mode** in which the program operates. Exists two options:
+1. seq - sequential generation
+2. chunk - parallel processing using chunk split
 
 ## Program functioning and structure.
 
