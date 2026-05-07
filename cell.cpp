@@ -19,9 +19,12 @@ Cell::~Cell()
 
 void Cell::collapse()
 {
+    omp_set_lock(&lock);
     if(tiles.empty())
     {
-        std::cout << "Cell is empty!" << std::endl;
+        std::cout << "Cell is empty!\n";
+
+        omp_unset_lock(&lock);
         return;
     }
 
@@ -33,6 +36,8 @@ void Cell::collapse()
     enthropy = 1;
     shared_ptr<Tile> new_tile = tiles.at(distr(gen));
     tiles = vector<shared_ptr<Tile>> {new_tile};
+
+    omp_unset_lock(&lock);
 }
 
 void Cell::resetTiles(vector<shared_ptr<Tile>> newTiles)
@@ -41,17 +46,18 @@ void Cell::resetTiles(vector<shared_ptr<Tile>> newTiles)
     this->enthropy = newTiles.size();
 }
 
-vector<shared_ptr<Tile>> Cell::getTiles() const
+vector<shared_ptr<Tile>> Cell::getTiles() 
 {
-    return tiles;
+    omp_set_lock(&lock);
+    auto res = tiles;
+    omp_unset_lock(&lock);
+    return res;
 }
 
 bool Cell::update(vector<shared_ptr<Tile>> neigh_tiles, int direction)
 {
     omp_set_lock(&lock);
-    isLocked = true; 
     
-
     bool updated = false;
     int checking_side = rotateSide(direction); // Side to which we compare neighbouring tiles
     unordered_set<string> valid_ids; // Store valid tile IDs for quick lookup

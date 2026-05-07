@@ -31,7 +31,7 @@ public:
     
     void collapse();
     bool update(vector<shared_ptr<Tile>> neigh_tiles, int direction);
-    vector<shared_ptr<Tile>> getTiles() const;
+    vector<shared_ptr<Tile>> getTiles();
     int getEnthropy()const{return enthropy;} 
     void resetTiles(vector<shared_ptr<Tile>> newTiles);
 
