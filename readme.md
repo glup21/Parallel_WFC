@@ -3,6 +3,11 @@
 This program generates new textures from small samples (Tiles).\
 Read https://github.com/mxgmn/WaveFunctionCollapse for more.
 
+# Checkerboard Parallel Wave Function Collapse
+
+A two-pass parallel approach to Wave Function Collapse using a 
+checkerboard grid decomposition, implemented in C++ with OpenMP.
+
 ## Terminology
 Tile: image with set of rules, which define which tiles are allowed to be neighbours of this one.\
 Tileset: set of Tiles.\
@@ -11,6 +16,34 @@ Cell: cell which contains possible Tiles. Can be in collapsed and undefined stat
     In collapsed state Cell has only one possible Tile.\
 Grid: 2D array of Cells. \
 Enthropy: number of possible states of Cell.
+
+## Method
+
+The output grid is partitioned into equal-sized chunks arranged in a 
+checkerboard pattern of black and white cells.
+
+- **Pass 1** — black chunks are generated in parallel. No two black 
+chunks are adjacent, so threads operate with no dependencies between them.
+- **Pass 2** — white chunks are generated in parallel, with all four 
+borders already fully determined by Pass 1, ensuring boundary consistency.
+
+This structure guarantees thread independence within each pass without 
+requiring inter-thread communication or locking beyond individual cell 
+operations.
+
+## Results
+
+Tested on an AMD Ryzen 7 7840HS (16 logical cores):
+
+| Grid size | Speedup |
+|-----------|---------|
+| 10×10     | —       |
+| 20×20     | ~3        |
+| 50×50     | ~3.5        |
+| 100×100   | ~4×     |
+
+Oversubscription factor of 2× yielded an additional ~10% improvement 
+at moderate grid sizes.
 
 ## Prerequisites
 You will need opencv for image handling and nlohmann json parser for config parsing.
