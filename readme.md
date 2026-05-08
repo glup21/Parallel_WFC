@@ -45,6 +45,11 @@ Tested on an AMD Ryzen 7 7840HS (16 logical cores):
 Oversubscription factor of 2× yielded an additional ~10% improvement 
 at moderate grid sizes.
 
+## Paper
+
+A full write-up of the method, implementation, and experimental 
+evaluation is available in [`CheckerboardWFC.pdf`](./CheckerboardWFC.pdf).
+
 ## Prerequisites
 You will need opencv for image handling and nlohmann json parser for config parsing.
 
